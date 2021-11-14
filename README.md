@@ -16,7 +16,7 @@ EXERCISE 1 DNA
           
           
           
-EXERCISE 2
+EXERCISE 2 RNA
 
 
           def DNAtoRNA(seq):
