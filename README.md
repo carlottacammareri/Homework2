@@ -3,9 +3,7 @@
 EXERCISE 1 DNA
          
          
-         
-         
-       def countNuc(dna):
+def countNuc(dna):
     counts = {'A': 0, 'C':0, 'G':0,'T':0}
     for nuc in dna:
         counts[nuc] += 1
