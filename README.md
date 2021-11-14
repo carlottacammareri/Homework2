@@ -35,3 +35,29 @@ EXERCISE 2 RNA
               return ''.join([DNA_reversecomplement[nuc] for nuc in seq])[::-1]
           print(reverse_complement("ATAGTCCCGCTACGGCGCCTGGGACCCATCGTAGACAGAGATGGAAAAGATGCCGGTCTACAATGAGCGGGTACCGTGGTGGCCGTTATCGCGCCCGTACAAGGACGGTCATTGCAGAGCGCCATACACTCCTGATGTGGCCGCGCCCATGATTGTATAGGTTTATTGCGGACTTGAATGGCGAAAAAGATGTCAACTTGGACGGCGATTGTCCGGCCTACAAGTATCACAGACGCCCCGGGGAGAGCTGTAAGCGAAGGGGATATCTCGCCTTCAATTCCTTCAGATCAAACCGTGTAGATAAAGATTGAAATTCTATGATGGGACATCCATGCCGAGACGGCAAGAGCATGGGTGATTCAGGCGCTCTTGCCCTAGTCGGAAGTTCTCCATCGTGTCAAAAGTTTAGGATCTGGCAGACCGTTCCTCTCCCAATCCCCCCTGGCTTATATTCTAGCGCACGGAACGGGTGTCCTTTATCATTTGCCGTCTACACGCCCACAGCTATCTGACCACCTAGTATCAAAAGTGCCATACTTGCCGTAAATCCTTAGCCCTCCGCTGACTTACATTCCATCTGGGCACGAATTCCCCACTATTCAAACACGAGGCGCGGTTTGCCTACCTCAACGCAGGTGGATTATGCACAATATTCAGTATACCTGAAAGGCCACGCGGAACTTCTGGGCATCACGCGTGTTCCTTACTGATTCTCGTGCCGGTGCCCTCCCCGACAGGGAAATCCTACACGGATTATGGCACGGTGGCCAATCCATCGAGGTTAGTCATATTGTGACAGGGGTTTGGTCGGGGATGTAAGGGAGTCAGAAGTTACGTCGCGTCCACTATACGGAGTTTTTAGCTGTGACCAGATTGAAACTAATGTAAC"))
 
+
+
+
+EXERCISE 4 MENDEL'S FIRST LAW
+
+import itertools
+
+def dominant_probability(num_homozygous_dominant, num_heterozygous, num_homozygous_recessive):
+    total = num_homozygous_dominant + num_heterozygous + num_homozygous_recessive
+
+    recessive_probability = (num_homozygous_recessive / total) * ((num_homozygous_recessive - 1) / (total - 1))
+    heterozygous_probability = (num_heterozygous / total) * ((num_heterozygous - 1) / (total - 1))
+    hetero_recessive_probability = (num_heterozygous / total) * (num_homozygous_recessive / (total - 1)) + (num_homozygous_recessive / total) * (num_heterozygous / (total - 1))
+
+    recessive_total = recessive_probability + heterozygous_probability * (.25) + hetero_recessive_probability * (.5)
+
+    return (1 - recessive_total)
+
+if __name__ == "__main__":
+
+    result = round(dominant_probability(17.0, 19.0, 26.0), 5)
+
+    print (result)
+
+    f = open('workfile.txt', 'w')
+    f.write(str(result))
