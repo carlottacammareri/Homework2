@@ -29,7 +29,7 @@ EXERCISE 2 RNA
  EXERCISE 3 REVC
  
  
-           DNA_reversecomplement = {'A':'T', 'T':'A', 'G':'C', 'C':'G'}
+          DNA_reversecomplement = {'A':'T', 'T':'A', 'G':'C', 'C':'G'}
 
           def reverse_complement(seq):
               return ''.join([DNA_reversecomplement[nuc] for nuc in seq])[::-1]
