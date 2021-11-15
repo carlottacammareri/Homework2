@@ -78,3 +78,20 @@ EXERCISE 4 MENDEL'S FIRST LAW
       for position in range(len(s)):
           if s[position:].startswith(t):
               print(position+1)
+              
+              
+              
+              
+              
+              Exercise 7 LIA
+              
+              
+      from math import factorial as FACT
+      k = 5
+      N = 8
+      P = 2**k
+      probability = 0
+      for i in range(N,P+1):
+          prob = (FACT(P)/(FACT(i)* FACT(P-i)))*(0.25**i)*(0.75**(P-i))
+          probability += prob
+      print(round(probability,3))
