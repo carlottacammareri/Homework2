@@ -84,10 +84,8 @@ Gc content exercise 5
                     seq_content = ""
                     continue
                 seq_content = seq_content + line
-            with open("out.txt", "w") as fo:
-                fo.write("%s\n%.6f" % (ans_name, ans_gc * 100.0))
-                fo.close()
-            f.close()
+            print(ans_name, ans_gc * 100.0)
+            
           
           
           
