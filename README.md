@@ -108,7 +108,7 @@ EXERCISE 6 SUBS
               
               
               
-              Exercise 7 LIA
+    Exercise 7 LIA
               
               
       from math import factorial as FACT
@@ -122,7 +122,7 @@ EXERCISE 6 SUBS
       print(round(probability,3))
       
       
-      EXERCISE 8 IEV 
+  EXERCISE 8 IEV 
       
       
       from enum import Enum
