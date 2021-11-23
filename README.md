@@ -64,6 +64,31 @@ EXERCISE 4 MENDEL'S FIRST LAW
           
           
           
+          Gc content exercise 5
+          
+          with open("rosalind_gc.txt", "r") as f:
+    seq_name = f.readline().replace("\n", "")
+    seq_content = ""
+    ans_gc = 0.0
+    ans_name = ""
+    while True:
+        line = f.readline().replace("\n", "")
+        if (line == "" or line[0] == '>'):
+            now_gc = (seq_content.count('G') + seq_content.count('C'))* 1.0 / len(seq_content)
+            if (now_gc > ans_gc):
+                ans_gc = now_gc
+                ans_name = seq_name
+            if (line == ""):
+                break
+            seq_name = line[1:]
+            seq_content = ""
+            continue
+        seq_content = seq_content + line
+    with open("out.txt", "w") as fo:
+        fo.write("%s\n%.6f" % (ans_name, ans_gc * 100.0))
+        fo.close()
+    f.close()
+          
           
           
           
