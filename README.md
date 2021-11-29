@@ -238,3 +238,28 @@ exercise 9 consensus and profile
           +str(P[1]).strip('[]').replace(',',''),'G: '
           +str(P[2]).strip('[]').replace(',',''),'T: '
           +str(P[3]).strip('[]').replace(',','')))
+
+
+
+
+Exercise 10 prob
+
+
+
+     import math
+
+     def RandomString(strRandomString, stringArray):
+         strRandomString = strRandomString.upper()
+         cg = len(strRandomString.replace('A', '').replace('T', ''))
+         at = len(strRandomString.replace('C', '').replace('G', ''))
+         inputArray = stringArray.split()
+         outputArray = []
+         for i in range(0, len(inputArray)):
+             prob = cg * math.log10(float(inputArray[i]) / 2) + at * math.log10((1 - float(inputArray[i])) / 2)
+             outputArray.append(round(prob, 3))
+         return outputArray
+
+
+
+
+     print(' '.join(map(str,       RandomString('CATGGTGTACACGACCTCTCGTTTTCCTTACCAAACCGATCAGAGCCCTCATGTACGCGCTGGAGACGAATAAGCAGAGTTACTGTAATTACTACTAAA', '0.062 0.130 0.190 0.238 0.266 0.341 0.371 0.439 0.504 0.573 0.590 0.680 0.733 0.759 0.804 0.854 0.920'))))
