@@ -186,7 +186,7 @@ EXERCISE 6 SUBS
       
       
       
-      exercise consensus and profile
+exercise 9 consensus and profile
       
       
       def read_fasta(fp):
