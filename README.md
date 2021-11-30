@@ -106,7 +106,7 @@ EXERCISE 6 SUBS
               
               
               
-    Exercise 7 LIA
+ Exercise 7 LIA
               
               
       from math import factorial as FACT
