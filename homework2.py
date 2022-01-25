@@ -55,8 +55,7 @@ if __name__ == "__main__":
 
     print (result)
 
-    f = open('workfile.txt', 'w')
-    f.write(str(result))
+    
 
 
 #exercise5
@@ -87,9 +86,9 @@ with open("rosalind_gc.txt", "r") as f:
 s="CGTAACCCCATGGCAAAACCCCAGCAAACCCCAAGAGCAACCCCACAAACCCCAATAACCCCAAACCCCAAACCCCAGGCATTCACGTAACCCCACCATAACCCCAAACCCCAGAACCCCAAACCCCATGAACCCCACGTTCAACCCCAAACCCCACAGGCAACCCCAAAACCCCAAACCCCACAACCCCAGTAACCCCAAGAACCCCATAACCCCAGGGACAACCCCATTGAACCCCAGGAACCCCACAACCCCAGAAACCCCACGGAGATTACAACCCCACGCTCTAAACCCCATGTCAAACCCCAAACCCCAAACCCCAAACCCCACAAACCCCAAACCCCAAACCCCAGGCAACCCCAGGGCTACTGCTCAACCCCATGAAACCCCACAAACCCCATTAGCTGAAACCCCAGAACCCCATAACCCCAGTCAGCTGAACCCCAGGCAGGTTTCAACCCCAAACCCCATCAAACCCCAAAACCCCATAACCCCACATAACCCCAATTCGAACCCCAAAACCCCAAACCCCAAAACCCCAGACCTAACCCCACGCTCTGAACCCCATGATGTAACCCCAAACCCCAGAACCCCACTGCGCTACACAACCCCAGCAACCCCAACCAACCCCAAACCCCATGTTCACGAACCCCAGAACCCCAGGCCAACCCCACAAACCCCAGGTCAGGGACCAAACCCCAAACCCCATTTCATGAACCCCAAGCTAACCCCAGGAACCCCAGTCAAACCCCATTTAACCCCACAACCCCAGCGAAGAGAACCCCACAACCCCAAACCCCAAACCCCAAACCCCAGGAACCCCACGGGGAACCCCAAACCCCAGGCAACCCCAAACCCCAATAACCCCAAACCCCATATTAACCCCA"
 t = "AACCCCAAA"
 
-for position in range(len(s)):
-    if s[position:].startswith(t):
-        print(position+1)
+for pos in range(len(s)):
+    if s[pos:].startswith(t):
+        print(pos+1)
 
 #exercise7
 
@@ -124,7 +123,7 @@ def mate(x,y):
         return [Allele.HET, Allele.HET, y, y]
     if y == Allele.HET:
         return [Allele.HET, Allele.HET, x, x]
-    else:#DOMINANT AND RECISSIVE
+    else:
         return [Allele.HET]*4
 
 
@@ -152,12 +151,12 @@ def f(AAAA, AAAa, AAaa, AaAa, Aaaa, aaaa):
     for i in range(aaaa):
         children.extend(mate(Allele.RECESSIVE, Allele.RECESSIVE))
 
-    count_dominant_presence = 0
+    count_dom = 0
     for child in children:
         if child is not Allele.RECESSIVE:
-            count_dominant_presence += 1
+            count_dom += 1
 
-    return count_dominant_presence/2
+    return count_dom/2
 
 AAAA = 18947
 AAAa = 17048
@@ -230,12 +229,12 @@ def RandomString(strRandomString, stringArray):
     strRandomString = strRandomString.upper()
     cg = len(strRandomString.replace('A', '').replace('T', ''))
     at = len(strRandomString.replace('C', '').replace('G', ''))
-    inputArray = stringArray.split()
-    outputArray = []
-    for i in range(0, len(inputArray)):
-        prob = cg * math.log10(float(inputArray[i]) / 2) + at * math.log10((1 - float(inputArray[i])) / 2)
-        outputArray.append(round(prob, 3))
-    return outputArray
+    inArray = stringArray.split()
+    outArray = []
+    for i in range(0, len(inArray)):
+        prob = cg * math.log10(float(inArray[i]) / 2) + at * math.log10((1 - float(inArray[i])) / 2)
+        outArray.append(round(prob, 3))
+    return outArray
 
 print(' '.join(map(str,  RandomString('CATGGTGTACACGACCTCTCGTTTTCCTTACCAAACCGATCAGAGCCCTCATGTACGCGCTGGAGACGAATAAGCAGAGTTACTGTAATTACTACTAAA', '0.062 0.130 0.190 0.238 0.266 0.341 0.371 0.439 0.504 0.573 0.590 0.680 0.733 0.759 0.804 0.854 0.920'))))
 
